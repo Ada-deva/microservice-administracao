@@ -1,6 +1,7 @@
 package com.br.microservice.administracao.configuration;
 
 
+import lombok.RequiredArgsConstructor;
 import lombok.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,9 +9,10 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Queue;
 
 @Configuration
+@RequiredArgsConstructor
 public class RabbitMQMenuPedidoSenderConfig {
 
-    @Value("${business.microservico.administracao.message.queue.menu_pedido}")
+    @Value("${business.administracao.message.queue.menu_pedido}")
     private String queueName;
 
     @Bean

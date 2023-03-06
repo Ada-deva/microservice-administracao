@@ -16,7 +16,7 @@ import java.nio.charset.StandardCharsets;
 @Configuration
 @Slf4j
 @RequiredArgsConstructor
-public class MenuRequestDeserializer implements Deserializer<MenuRequest>{
+public abstract class MenuRequestDeserializer implements Deserializer<MenuRequest>{
 
     private final ObjectMapper objectMapper;
 

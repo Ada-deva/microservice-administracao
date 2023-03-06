@@ -11,9 +11,9 @@ public class InsumoRequest {
     private Long item;
     @NotNull
     private String descrição;
-    @Min(value = 1, "Informe uma quantiadade mínima para atualizar insumos")
+    @Min(value = 1, message = "Informe uma quantiadade mínima para atualizar insumos")
     private String qtd;
-    @Min(value = 1, "Informe valor minimo do insumo")
+    @Min(value = 1, message = "Informe valor minimo do insumo")
     private Double valor;
 
 }
