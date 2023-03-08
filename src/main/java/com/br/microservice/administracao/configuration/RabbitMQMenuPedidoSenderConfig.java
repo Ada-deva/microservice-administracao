@@ -2,11 +2,11 @@ package com.br.microservice.administracao.configuration;
 
 
 import lombok.RequiredArgsConstructor;
-import lombok.Value;
+
+import org.springframework.amqp.core.Queue;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.Queue;
 
 @Configuration
 @RequiredArgsConstructor
@@ -19,5 +19,5 @@ public class RabbitMQMenuPedidoSenderConfig {
     public Queue queue(){
         return new Queue(queueName, true);
         }
-    }
 
+    }

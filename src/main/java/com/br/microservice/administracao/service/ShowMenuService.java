@@ -1,7 +1,7 @@
 package com.br.microservice.administracao.service;
 
-import com.br.microservice.administracao.entities.Menu;
-import com.br.microservice.administracao.model.payload.request.RelatorioMenu;
+import com.br.microservice.administracao.entity.Menu;
+import com.br.microservice.administracao.DTO.RelatorioMenuDTO;
 import com.br.microservice.administracao.repository.MenuRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,12 +19,12 @@ public class ShowMenuService {
 
     @Cacheable (cacheNames = "showMenu", key = "#item")
 
-    public RelatorioMenu execute (String descricao){
+    public RelatorioMenuDTO execute (String descricao){
         log.info("Apresentação Menu executado");
         List<Menu> menuList = menuRepository.findAll();
-        RelatorioMenu relatorioMenu = new RelatorioMenu();
-        relatorioMenu.setDescricao(descricao);
-        relatorioMenu.setValor(menuList.stream().mapToDouble(menu-> menu.getValor().doubleValue()).sum());
-        return relatorioMenu;
+        RelatorioMenuDTO relatorioMenuDTO = new RelatorioMenuDTO();
+        relatorioMenuDTO.setDescricao(descricao);
+        relatorioMenuDTO.setValor(menuList.stream().mapToDouble(menu-> menu.getValor().doubleValue()).sum());
+        return relatorioMenuDTO;
     }
 }

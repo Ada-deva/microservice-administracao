@@ -80,13 +80,9 @@ logging:
       apache: WARN
     root: info
 
-
-  message:
-    queue:
-      ordem_compra: ordem_compra
-
 business:
   administracao:
    message:
       queue:
         menu_pedido: menu_pedido_comanda
+        ordem_compra: ordem_compra

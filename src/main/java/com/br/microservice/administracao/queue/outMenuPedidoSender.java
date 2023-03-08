@@ -1,6 +1,7 @@
 package com.br.microservice.administracao.queue;
 
-import com.br.microservice.administracao.model.payload.request.EnviarMenuPedidoRequest;
+
+import com.br.microservice.administracao.DTO.MenuDTO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -21,12 +22,13 @@ public class outMenuPedidoSender {
 
     private final ObjectMapper objectMapper;
 
-    public void send(EnviarMenuPedidoRequest enviarMenuPedidoRequest) {
+    public void send(MenuDTO menuDTO) {
         String message = null;
         try {
-            message = objectMapper.writeValueAsString(enviarMenuPedidoRequest);
+            message = objectMapper.writeValueAsString(menuDTO);
             log.info("Mensagem enviada para o Rabbit {}",
-                    enviarMenuPedidoRequest.getMenu());
+                    menuDTO.getDescricao(),
+                    menuDTO.getValor());
             rabbitTemplate.convertSendAndReceive(queue.toString(),message);
 
         } catch (JsonProcessingException e) {

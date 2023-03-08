@@ -1,6 +1,6 @@
 package com.br.microservice.administracao.service;
 
-import com.br.microservice.administracao.entities.Insumo;
+import com.br.microservice.administracao.entity.Insumo;
 import com.br.microservice.administracao.repository.InsumoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,8 +11,8 @@ public class CreateOrReatriverInsumoService {
 
         private final InsumoRepository insumoRepository;
 
-        public Insumo execute(Insumo insumo){
-            return insumoRepository.findById(insumo.getItem())
+        public Insumo salvar(Insumo insumo){
+            return insumoRepository.findById(insumo.getId())
                     .orElse(insumoRepository.save(insumo));
         }
 }
