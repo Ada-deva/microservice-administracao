@@ -14,7 +14,7 @@ public class inOrdemCompraInsumoConsumer {
 
     private final ObjectMapper objectMapper;
     private final CreateInsumoService createInsumoService;
-    @RabbitListener (queues = "${business.administracao.message.queue.ordem_compra}")
+    @RabbitListener (queues = "{business.administracao.message.queue.ordem_compra}")
     public void receiveMessage (String message) throws JsonProcessingException{
         InsumoDTO insumoDTO = objectMapper.readValue(message, InsumoDTO.class);
         createInsumoService.execute(insumoDTO);

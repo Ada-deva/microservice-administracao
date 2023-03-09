@@ -26,9 +26,7 @@ public class outMenuPedidoSender {
         String message = null;
         try {
             message = objectMapper.writeValueAsString(menuDTO);
-            log.info("Mensagem enviada para o Rabbit {}",
-                    menuDTO.getDescricao(),
-                    menuDTO.getValor());
+            log.info("Mensagem enviada para o Rabbit {}", message);
             rabbitTemplate.convertSendAndReceive(queue.toString(),message);
 
         } catch (JsonProcessingException e) {

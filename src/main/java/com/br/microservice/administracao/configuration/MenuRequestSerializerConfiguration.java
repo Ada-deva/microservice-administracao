@@ -15,7 +15,7 @@ import java.util.Objects;
 @Configuration
 @Slf4j
 @RequiredArgsConstructor
-public class MenuRequestSerializer implements Serializer<MenuDTO> {
+public class MenuRequestSerializerConfiguration implements Serializer<MenuDTO> {
 
     private final ObjectMapper objectMapper;
 
@@ -36,7 +36,7 @@ public class MenuRequestSerializer implements Serializer<MenuDTO> {
 
 
 
-    public MenuRequestSerializer (){
+    public MenuRequestSerializerConfiguration(){
         this.objectMapper = new ObjectMapper();
     }
 

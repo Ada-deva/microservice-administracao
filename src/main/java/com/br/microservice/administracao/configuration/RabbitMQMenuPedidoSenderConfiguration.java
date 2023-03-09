@@ -10,9 +10,9 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @RequiredArgsConstructor
-public class RabbitMQMenuPedidoSenderConfig {
+public class RabbitMQMenuPedidoSenderConfiguration {
 
-    @Value("${business.administracao.message.queue.menu_pedido}")
+    @Value("{business.administracao.message.queue.menu_pedido}")
     private String queueName;
 
     @Bean
